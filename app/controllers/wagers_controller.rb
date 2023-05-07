@@ -2,7 +2,7 @@ class WagersController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @wagers = Wager.all
+    @wagers = current_user.wagers
     render json: @wagers
   end
 
