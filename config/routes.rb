@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users
   resources :sessions
+  resources :sports
+  resources :bet_types
+  resources :wagers
 end
