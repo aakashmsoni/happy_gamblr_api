@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# User.create(name: "Aakash", email: "aakash@test.com", password: "password", password_confirmation: "password")
+# User.create(name: "Neal", email: "neal@test.com", password: "password", password_confirmation: "password")
+
+Sport.create(name: "NBA")
+Sport.create(name: "MLB")
+Sport.create(name: "NCAA")
+Sport.create(name: "MLS")
+Sport.create(name: "NHL")
+Sport.create(name: "COMBO")
+
+BetType.create(name: "MONEYLINE")
+BetType.create(name: "PARLAY")
+BetType.create(name: "SPREAD")
+BetType.create(name: "OVER/UNDER")
+BetType.create(name: "SINGLE")
+BetType.create(name: "ROUND ROBIN")
