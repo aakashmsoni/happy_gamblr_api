@@ -44,4 +44,11 @@ class WagersControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal 250, data["odds"]
   end
+
+  test "destroy" do
+    assert_difference "Wager.count", -1 do
+      delete "/wagers/#{Wager.first.id}.json"
+      assert_response 200
+    end
+  end
 end

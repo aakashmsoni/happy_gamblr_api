@@ -46,4 +46,10 @@ class WagersController < ApplicationController
       render json: { errors: @wager.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @wager = Wager.find_by(id: params[:id])
+    @wager.destroy
+    render json: { message: "Successfully deleted!" }
+  end
 end
