@@ -1,0 +1,2 @@
+class Wager < ApplicationRecord
+end

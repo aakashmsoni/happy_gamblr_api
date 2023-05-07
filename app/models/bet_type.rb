@@ -1,0 +1,2 @@
+class BetType < ApplicationRecord
+end
