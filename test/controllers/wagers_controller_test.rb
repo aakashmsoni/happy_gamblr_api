@@ -35,4 +35,13 @@ class WagersControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal ["id", "user_id", "bet_type_id", "sport_id", "wager_amount", "odds", "win", "profit_loss", "created_at", "updated_at"], data.keys
   end
+
+  test "update" do
+    wager = Wager.first
+    patch "/wagers/#{wager.id}.json", params: { odds: 250 }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal 250, data["odds"]
+  end
 end
