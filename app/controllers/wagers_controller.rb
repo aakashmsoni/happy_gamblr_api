@@ -20,4 +20,10 @@ class WagersController < ApplicationController
       render json: { errors: @wager.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def show
+    wager_id = params[:id]
+    @wager = Wager.find_by(id: wager_id)
+    render json: @wager
+  end
 end

@@ -27,4 +27,12 @@ class WagersControllerTest < ActionDispatch::IntegrationTest
       assert_response 201
     end
   end
+
+  test "show" do
+    get "/wagers/#{Wager.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "user_id", "bet_type_id", "sport_id", "wager_amount", "odds", "win", "profit_loss", "created_at", "updated_at"], data.keys
+  end
 end
