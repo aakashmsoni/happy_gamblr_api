@@ -6,9 +6,20 @@ class WagersController < ApplicationController
     render json: @wagers
   end
 
+  def show
+    wager_id = params[:id]
+    @wager = current_user.wagers.find_by(id: wager_id)
+
+    if @wager
+      render json: @wager
+    else
+      render json: { errors: "Wager does  not exist" }, status: :bad_request
+    end
+  end
+
   def create
     @wager = Wager.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       bet_type_id: params[:bet_type_id],
       sport_id: params[:sport_id],
       wager_amount: params[:wager_amount],
@@ -21,12 +32,6 @@ class WagersController < ApplicationController
     else
       render json: { errors: @wager.errors.full_messages }, status: :unprocessable_entity
     end
-  end
-
-  def show
-    wager_id = params[:id]
-    @wager = Wager.find_by(id: wager_id)
-    render json: @wager
   end
 
   def update

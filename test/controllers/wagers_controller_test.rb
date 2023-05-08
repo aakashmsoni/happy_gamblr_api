@@ -39,11 +39,17 @@ class WagersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "show" do
-    get "/wagers/#{Wager.first.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }
+    get "/wagers/#{@user.wagers.first.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }
     assert_response 200
 
     data = JSON.parse(response.body)
     assert_equal ["id", "user_id", "bet_type_id", "sport_id", "wager_amount", "odds", "win", "profit_loss", "created_at", "updated_at"], data.keys
+
+    get "/wagers/#{@user.wagers.first.id}.json"
+    assert_response 401
+
+    get "/wagers/2.json", headers: { "Authorization" => "Bearer #{@jwt}" }
+    assert_response 400
   end
 
   test "update" do
