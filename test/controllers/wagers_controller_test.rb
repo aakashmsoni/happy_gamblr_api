@@ -21,13 +21,7 @@ class WagersControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Wager.count", 1 do
-      post "/wagers.json", params: { user_id: @user.id,
-                                     bet_type_id: BetType.first.id,
-                                     sport_id: Sport.first.id,
-                                     wager_amount: 1.00,
-                                     odds: 110,
-                                     win: true,
-                                     profit_loss: 1.10 }, headers: { "Authorization" => "Bearer #{@jwt}" }
+      post "/wagers.json", params: { bet_type_id: BetType.first.id, sport_id: Sport.first.id, wager_amount: 4.00, odds: 150, win: true }, headers: { "Authorization" => "Bearer #{@jwt}" }
       assert_response 201
     end
 

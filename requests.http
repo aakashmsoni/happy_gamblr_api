@@ -1,0 +1,23 @@
+
+### Session Create
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "aakash@test.com",
+  "password": "password"
+}
+
+
+### Wager Create
+POST http://localhost:3000/wagers.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2ODM1OTQxNzN9.9TymYEUCFOSaCQWhuSOrkldH7m40uiUdiAUR0QjnpMk
+
+{
+  "bet_type_id": 1,
+  "sport_id": 1,
+  "wager_amount": 5.00,
+  "odds": -115,
+  "win": true
+}

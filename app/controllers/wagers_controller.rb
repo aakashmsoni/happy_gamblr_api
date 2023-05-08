@@ -18,6 +18,13 @@ class WagersController < ApplicationController
   end
 
   def create
+    prof_loss_calc = 0
+    if params[:odds] < 0
+      prof_loss_calc = params[:wager_amount] / ((params[:odds] * -1) / 100.00)
+    elsif params[:odds] > 0
+      prof_loss_calc = (params[:wager_amount] * ((params[:odds] / 100.00).to_f))
+    end
+
     @wager = Wager.new(
       user_id: current_user.id,
       bet_type_id: params[:bet_type_id],
@@ -25,7 +32,7 @@ class WagersController < ApplicationController
       wager_amount: params[:wager_amount],
       odds: params[:odds],
       win: params[:win],
-      profit_loss: params[:profit_loss],
+      profit_loss: prof_loss_calc,
     )
     if @wager.save
       render json: { message: "Wager saved!" }, status: :created
