@@ -10,9 +10,7 @@ class WagersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "index" do
-    get "/wagers.json", headers: {
-                          "Authorization" => "Bearer #{@jwt}",
-                        }
+    get "/wagers.json", headers: { "Authorization" => "Bearer #{@jwt}" }
     assert_response 200
 
     data = JSON.parse(response.body)
