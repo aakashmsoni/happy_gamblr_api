@@ -24,12 +24,12 @@ Content-Type: application/json
 ### Wager Create
 POST http://localhost:3000/wagers.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2ODM1OTQxNzN9.9TymYEUCFOSaCQWhuSOrkldH7m40uiUdiAUR0QjnpMk
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2ODM3NzIxMjV9.VFQdSfWFO7DFOf4XXkK2jPqPsI1OzD1fflgy0sHsL5o
 
 {
   "bet_type_id": 1,
   "sport_id": 1,
   "wager_amount": 5.00,
   "odds": -115,
-  "win": true
+  "win": false
 }
