@@ -33,3 +33,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2ODM3NzIxM
   "odds": -115,
   "win": false
 }
+
+### Wager Destroy
+DELETE http://localhost:3000/wagers/9.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2ODM4Njc0NzB9.7_PE-GrqHymuk7Rii3Fd4SZeflNihk6XPayO2hqGE4o
+
+{
+  
+}
