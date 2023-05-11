@@ -3,7 +3,7 @@ class WagersController < ApplicationController
 
   def index
     @wagers = current_user.wagers
-    render json: @wagers
+    render json: @wagers.as_json(include: [:sport, :bet_type, :user])
   end
 
   def show
@@ -11,7 +11,7 @@ class WagersController < ApplicationController
     @wager = current_user.wagers.find_by(id: wager_id)
 
     if @wager
-      render json: @wager
+      render json: @wager.as_json
     else
       render json: { errors: "Wager does  not exist" }, status: :bad_request
     end
