@@ -18,7 +18,7 @@ class WagersController < ApplicationController
   end
 
   def create
-    prof_loss_calc = 0
+    prof_loss_calc = 0.00
     if params[:win] == "true"
       if params[:odds].to_i < 0
         prof_loss_calc = params[:wager_amount].to_i / ((-1 * params[:odds].to_i) / 100.00)
